@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Proceso de Facturas</title>
+        <link rel="icon" type="image/png" href="../../../favicon.png"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/estilos.css" rel="stylesheet" type="text/css"/>
+        <!--<a href="../../../fonts/carro-de-la-compra.svg"></a>-->
+    </head>
+    <body background="img/gymm.jpg">
+        <div id="confirmar"></div>
+        <div id="buscar"></div>
+        <!--Detalle Factura-->
+        <div style="background-color: #c0c0c0" id="panelLinea" class="panel panel-success">
+            <div class="panel-heading centrado">Facturas Detalle</div>
+            <div class="panel-body" style="background-color: #e7e7e7">
+                <form id="formLinea">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id Linea</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_detalle_factura" name="id_detalle_factura" type="text" class="fcontrolbordo input-sm" placeholder="Id" readonly="readonly" disabled="disabled">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Actividad</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_actividad" name="id_actividad" type="text" class="form-control input-sm" placeholder="Id">
+                        </div>
+
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdActividad" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="nombre_actividad" name="nombre_actividad" type="text" class="fcontrolbordo input-sm" placeholder="Nombre Actividad" readonly="readonly">
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Precio</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="precio_actividad" name="precio_actividad" type="text" class="fcontrolbordo input-sm" placeholder="Precio" onkeypress="return SoloNumeros(event)" readonly="readonly">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row oculto">
+                        <div class="col-md-1">
+                            <span>Cantidad</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="cantidad_factura" name="cantidad_factura" type="text" class="fcontrolbordo input-sm input-sm" value="1" placeholder="cantidad">
+                        </div>
+                    </div>
+                    <br>
+                    <!--<div class="row">
+                        <div class="col-md-1">
+                            <span>SubTotal</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="precio_total_factura" name="precio_total_factura" type="text" class="fcontrolbordo input-sm" placeholder="Subtotal" onkeypress="return pretotal(this)" readonly="readonly">
+                        </div>
+                        <div class="col-md-9">   
+                        </div>
+                    </div>
+                    <br>-->
+                    <!--h4>IVA</h4>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Subtotal gravadas 5%</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="ttotalgravada_5" name="ttotalgravada_5" type="text" class="fcontrolbordo input-sm" placeholder="gravadas 5%" readonly="readonly">
+                        </div>
+                        <div class="col-md-9">   
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Subtotal 5%</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="ssubtotal_5" name="ssubtotal_5" type="text" class="fcontrolbordo input-sm" placeholder="subtotal 5%" readonly="readonly">
+                        </div>
+                        <div class="col-md-9">   
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Subtotal gravadas 10%</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="ttotalgravada_10" name="ttotalgravada_10" type="text" class="fcontrolbordo input-sm" placeholder="gravadas 10%" readonly="readonly">
+                        </div>
+                        <div class="col-md-9">   
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Subtotal 10%</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="ssubtotal_10" name="ssubtotal_10" type="text" class="fcontrolbordo input-sm" placeholder="subtotal 10%" readonly="readonly">
+                        </div>
+                        <div class="col-md-9">   
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Subtotal Exenta</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="ssubtotal_exenta" name="ssubtotal_exenta" type="text" class="fcontrolbordo input-sm" placeholder="subtotal exenta" readonly="readonly">
+                        </div>
+                        <div class="col-md-9">   
+                        </div-->
+                    <!--<div class="col-md-3">   
+                    </div>
+
+                </div>
+            
+        </div-->
+                </form>
+            </div>
+            <div class="panel-footer centrado">
+                <button id="botonAgregarLinea" type="button" class="btn bordo bordo1 btn-sm">Agregar</button>
+                <button id="botonModificarLinea" type="button" class="btn bordo bordo1 btn-sm">Modificar</button>
+                <button id="botonEliminarLinea" type="button" class="btn bordo bordo1 btn-sm" data-toggle="modal" data-target="#confirmarEliminarLinea">Eliminar</button>
+                <button id="botonSalirLinea" type="button" class="btn bordo bordo1 btn-sm">Salir</button>
+            </div>
+        </div>
+        <!--DISEÑOPANEL-->
+        <div id="panelPrograma" class="panel panel-success">
+            <div class="panel-heading centrado">Módulo de Facturas <span id="snombre_empresa"></span> <span id="susuario_usuario"></span></div>
+            <div class="panel-body" style="background-color: #e7e7e7">
+                <form id="formPrograma">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_usuario" name="id_usuario" type="text"
+                                   class="form-control input-sm" placeholder="id" readonly="readonly">
+                            <!--<input id="id_actividad" name="id_actividad" type="text" class="form-control input-sm" placeholder="Actividad">-->
+                        </div>
+
+                        <div class="col-md-1">
+                            <span>Cajero</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="nombre_usuario" name="nombre_usuario" type="text" class="fcontrolbordo input-sm" placeholder="cajero" readonly="readonly">
+                        </div>
+                        <div class="col-md-7">   
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>N° Factura</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="numero_factura" name="numero_factura" type="text" class="fcontrolbordo input-sm" placeholder="n°factura" readonly="readonly">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_factura" name="id_factura" type="text" value="0" class="fcontrolbordo input-sm" placeholder="Id" onkeypress="return numeros(event)">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdFactura" type="button" class="btn bordo bordo1 btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                    </div>
+                    <div class="row" id="agen">
+                        <div class="col-md-1">
+                            <span>Id Agendamiento</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_agendamiento" name="id_agendamiento" type="text" class="form-control input-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdagend" type="button" class="btn bordo bordo1 btn-sm"><span class="glyphicon glyphicon-user"></span></button>
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Fecha Factura</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="fecha_factura" name="fecha_factura" type="Date" class="fcontrolbordo input-sm">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Persona</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_persona" name="id_persona" type="text" class="form-control input-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdPersona" type="button" class="btn bordo bordo1 btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonAgregarPersona" type="button" class="btn bordo bordo1 btn-sm"><span class="glyphicon glyphicon-plus-sign"></span></button>
+                        </div>
+
+                        <div class="col-md-2">
+                            <input id="nombre_persona" name="nombre_persona" type="text" class="fcontrolbordo input-sm" placeholder="Nombre Persona" disabled="disabled">
+                        </div>
+
+                        <div class="col-md-1">
+                            <span>Ruc</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="ci_persona" name="ci_persona" type="text" class="fcontrolbordo input-sm" placeholder="N° Ruc" disabled="disabled">
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Estado</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="estado_factura" name="estado_factura" type="text" class="fcontrolbordo input-sm" readonly="readonly" value="PENDIENTE">
+                        </div>
+                    </div>
+                    <div id="detalle" hidden="">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Actividad</th>
+                                    <th>Descripcion</th>
+                                    <th>Precio Unitario</th>
+                                    <th class="centrado">Cantidad</th>
+                                    <th class="centrado">Subtotal</th>
+                                    <th class="centrado"><button onclick="agregarLinea()" type="button" class="btn bordo bordo1 btn-sm"><span class="glyphicon glyphicon-plus"></span></button></th>
+                                </tr>
+                            </thead>
+                            <tbody id="contenidoDetalle">
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer centrado">
+                <button id="botonAgregar" type="button" class="btn bordo bordo1 btn-sm"><span class="glyphicon glyphicon-shopping-cart"></span>Agregar</button>
+                <button id="botonModificar" type="button" class="btn bordo bordo1 btn-sm"><span class="glyphicon glyphicon-ok-sign"></span>Modificar</button>
+                <button id="botonCobrar" type="button" class="btn bordo bordo1 btn-sm"><span class="glyphicon glyphicon-credit-card"></span>Cobrar</button>
+                <!--button id="botonEliminar" type="button" class="btn bordo bordo1 btn-sm" data-toggle="modal" data-target="#confirmarEliminar"><span class="glyphicon glyphicon-remove"></span>Anular</button-->
+                <button id="botonSalir" type="button" class="btn bordo bordo1 btn-sm"><span class="glyphicon glyphicon-log-out"></span>Salir</button>
+            </div>
+        </div>
+        <div id="mensajes" class="well well-sm centrado">Mensaje del Sistema.</div>
+        <div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header  centrado">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Mensaje del Sistema</h4>
+                    </div>
+                    <div class="modal-body">
+                        Está seguro de eliminar estos datos?
+                    </div>
+                    <div class="modal-footer centrado">
+                        <button id="botonEliminarAlert" type="button" class="btn bordo bordo1 btn-sm">Eliminar</button>
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--*-->
+        <div class="modal fade" id="confirmarEliminarLinea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header  centrado">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabelLinea">Mensaje del Sistema</h4>
+                    </div>
+                    <div class="modal-body">
+                        Está seguro de eliminar esta linea?
+                    </div>
+                    <div class="modal-footer centrado">
+                        <button id="botonEliminarAlertLinea" type="button" class="btn bordo bordo1 btn-sm">Eliminar</button>
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../../js/jquery.min.js" type="text/javascript"></script>
+        <script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../../js/funciones.js" type="text/javascript"></script>
+        <script src="../cajas1/js/funciones.js" type="text/javascript"></script>
+        <script src="js/funciones.js" type="text/javascript"></script>
+        <script>
+                                        verificarSesion(true);
+                                        $("#buscar").css("display", "none");
+                                        $("#panelLinea").css("display", "none");
+                                        //$("#id_factura").focus();
+                                        function getGET()
+                                        {
+
+                                            var loc = document.location.href;
+
+                                            if (loc.indexOf('?') > 0)
+                                            {
+
+                                                var getString = loc.split('?')[1];
+
+                                                var GET = getString.split('&');
+                                                var get = {};
+
+
+                                                for (var i = 0, l = GET.length; i < l; i++) {
+                                                    var tmp = GET[i].split('=');
+                                                    get[tmp[0]] = unescape(decodeURI(tmp[1]));
+                                                }
+                                                return get;
+                                            }
+                                        }
+                                        var valores = getGET();
+                                        if (valores)
+                                        {
+
+                                            for (var index in valores)
+                                            {
+
+                                                $("#id_agendamiento").val(valores[index]);
+                                                
+                                                setTimeout('cargaagend()',300);
+                                                //setTimeout('agregarFactura()',1900);
+                                            }
+                                        } else {
+                                        }
+                                        buscarIdFactura();
+
+                                        siguienteCampo("#id_factura", "#fecha_factura", false);
+                                        siguienteCampo("#fecha_factura", "#id_persona", false);
+
+                                        siguienteCampo("#id_actividad", "#cantidad_factura", false);
+
+                                        if ($("#id_factura").val() === "0") {
+                                            siguienteCampo("#id_persona", "#botonAgregar", false);
+
+                                        } else {
+
+                                            siguienteCampo("#id_persona", "#botonModificar", false);
+                                        }
+                                        $("#fecha_factura").ready(function () {
+                                            console.log(fechaHoy());
+                                        });
+                                        /*   $("#id_agendamiento").focusout(function (event) { 
+                                         alert("dgbdggbbd");
+                                         if ($("#id_agendamiento").val() === "") {
+                                         $("#id_agendamiento").val("0");
+                                         }
+                                         buscarIdAgendamiento();
+                                         var id = $("#id_agendamiento").val();
+                                         $("#id_agendamiento").val("0");
+                                         
+                                         });*/
+
+
+                                        $("#id_factura").focusout(function (event) {
+                                            if ($("#id_factura").val() === "") {
+                                                $("#id_factura").val("0");
+                                            }
+                                            buscarIdFactura();
+
+                                            var id = $("#id_factura").val();
+                                            $("#id_factura").val("0");
+                                            var img = "<img src='../../../img/facturas/" + id + ".jpg' alt=''>";
+                                            $("#foto").html(img);
+
+                                        });
+
+
+
+                                        $("#id_timbrado").focusout(function (event) {
+                                            if ($("#id_timbrado").val() === "") {
+                                                $("#id_timbrado").val("0");
+                                            }
+                                            buscarIdTimbrado();
+                                        });
+
+                                        $("#id_establecimiento").focusout(function (event) {
+                                            if ($("#id_establecimiento").val() === "") {
+                                                $("#id_establecimiento").val("0");
+                                            }
+                                            buscarIdEstablecimiento();
+                                        });
+
+                                        $("#id_puesto").focusout(function (event) {
+                                            if ($("#id_puesto").val() === "") {
+                                                $("#id_puesto").val("0");
+                                            }
+                                            buscarIdPuesto();
+                                        });
+
+                                        $("#id_persona").focusout(function (event) {
+                                            if ($("#id_persona").val() === "") {
+                                                $("#id_persona").val("0");
+                                            }
+                                            buscarIdPersona();
+                                        });
+
+                                        $("#id_actividad").focusout(function (event) {
+                                            if ($("#id_actividad").val() === "") {
+                                                $("#id_actividad").val("0");
+                                            }
+                                            buscarIdActividad();
+                                        });
+
+                                        // $("#id_actividad").focusout(function (event) {
+                                        // if ($("#cantidad_actividad_factura").val().trim() === "" || $("#cantidad_actividad_factura").val().trim() === "0") {
+                                        //     validarcantidad(this);
+                                        //  }
+                                        //});
+
+                                        $("#cantidad_factura").focusout(function (event) {
+                                            if ($("#cantidad_factura").val(1) !== "" && $("#precio_actividad").val() !== "") {
+                                                pretotal(this);
+                                            }
+                                        });
+
+                                        $("#cantidad_factura").focusout(function (event) {
+                                            if ($("#cantidad_factura").val(1) !== "" && $("#precio_actividad").val() !== "") {
+                                                iva(this);
+                                                ivagravada(this);
+                                            }
+                                        });
+                                        $("#botonBuscarIdagend").on('click', function () {
+                                            buscarIdAgendamiento();
+                                        });
+
+                                        $("#botonAgregarLinea").on('click', function () {
+                                            agregarFacturaDetalle();
+                                            //if (validarcantidad()) {
+
+                                            // }
+
+                                        });
+
+
+                                        $("#botonModificarLinea").on('click', function () {
+
+                                            modificarFacturaDetalle();
+
+                                        });
+
+                                        $("#botonBuscarIdFactura").on('click', function () {
+                                            $("#buscar").load("buscar.html");
+                                            $("#buscar").fadeIn("slow");
+                                            $("#panelPrograma").fadeOut("slow");
+                                        });
+
+                                        $("#botonBuscarIdEstablecimiento").on('click', function () {
+                                            $("#buscar").load("buscarEstablecimiento.html");
+                                            $("#buscar").fadeIn("slow");
+                                            $("#panelPrograma").fadeOut("slow");
+                                        });
+
+
+                                        $("#botonBuscarIdPersona").on('click', function () {
+                                            $("#buscar").load("buscarPersona.html");
+                                            $("#buscar").fadeIn("slow");
+                                            $("#panelPrograma").fadeOut("slow");
+                                        });
+
+                                        $("#botonAgregarPersona").on('click', function () {
+                                            window.open("../../archivos/personas/index.html");
+                                        });
+
+                                        /*$("#botonAgregarPersona").on('click', function () {
+                                         $("#buscar").load("../../Archivos/personas/index.html");
+                                         $("#buscar").fadeIn("slow");
+                                         $("#panelPrograma").fadeOut("slow");
+                                         });*/
+
+                                        $("#botonBuscarIdActividad").on('click', function () {
+                                            $("#buscar").load("buscarActividades.html");
+                                            $("#buscar").fadeIn("slow");
+                                            $("#panelLinea").fadeOut("slow");
+                                        });
+
+                                        $("#botonAgregar").on('click', function () {
+                                            var n = $("#id_agendamiento").val();
+                                            if (n === "") {
+                                                agregarFac();
+                                                $("#agen").hide();
+                                            } else {
+                                                agregarFactura();
+                                            }
+
+                                        });
+
+                                        $("#botonModificar").on('click', function () {
+
+                                            modificarFactura();
+
+                                        });
+
+                                        $("#botonCobrar").on('click', function () {
+                                            modificarpendiente();
+                                            aa = document.getElementById("id_factura").value;
+                                            location.href = "../cajasdetalles/index.html?id_factura=" + aa;
+
+                                        });
+                                        /* $("#botonCobrar").on('click', function () {
+                                         location.href = "../detallescajas/index.html";
+                                         });*/
+
+
+                                        // $("#botonCobrar").on('click', function () {
+                                        // location.href = "../cajas/index.html";
+                                        //});
+
+                                        $("#botonEliminarAlert").on('click', function () {
+                                            eliminarFactura();
+                                            $('#confirmarEliminar').modal('hide');
+                                        });
+
+                                        $("#botonSalir").on('click', function () {
+                                            location.href = "../../../menu.html";
+                                        });
+
+                                        $("#botonEliminarAlertLinea").on('click', function () {
+                                            eliminarFacturaDetalle();
+                                            $('#confirmarEliminarLinea').modal('hide');
+                                        });
+
+
+                                        $("#botonSalirLinea").on('click', function () {
+                                            $("#panelLinea").fadeOut("slow");
+                                            $("#panelPrograma").fadeIn("slow");
+                                        });
+
+
+
+        </script>
+    </body>
+</html>

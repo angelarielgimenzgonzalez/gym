@@ -1,0 +1,330 @@
+<html>
+    <head>
+        <title>Personas</title>
+        <link rel="icon" type="image/png" href="../../../img/modificar.png"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/estilo.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/estilos1.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body style="background-image: url(../../../img/gymm.jpg); background-size: 100%">
+
+        <div class="panelbody">
+            <div id="confirmar"></div>
+            <div id="buscar"></div>
+            <div id="panelPrograma" class="panel panel-success" style="background-color: #cccccc">
+                <div class="panel-heading text-center" style="color: #398439;"><h3>Personas <a class="glyphicon glyphicon-align-justify"></a></h3><span
+                        id="susario_usuario"></span></div>
+                <div class="panel-body">
+                    <form id="formPrograma">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h4><span>Id</span></h4>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="id_persona" name="id_persona" type="text" 
+                                       class="form-control input-sm" placeholder="Id" onkeypress="return SoloNumeros(event)">
+                            </div>
+                            <div class="col-md-1">
+                                <button id="botonBuscarIdPersona"  type="button" 
+                                        class="btn btn-primary btn-sm">
+                                    <span class="glyphicon glyphicon-search"></span>      
+                                </button>
+                            </div>
+                            <div class="col-md-9">                                                                      
+                            </div>                       
+                        </div>
+                        <div class="row">  
+                            <div class="col-md-3">   
+                                <h4><span>Nombre</span></h4>
+                            </div> 
+                            <div class="col-md-6">  
+                                <input id="nombre_persona" name="nombre_persona" type="text" 
+                                       class="form-control input-sm" placeholder="Nombre" onkeyup="this.value = this.value.toUpperCase()" onkeypress="return soloLetras(event)">
+                            </div> 
+                        </div>
+                        <div class="row">  
+                            <div class="col-md-3">   
+                                <h4><span>Apellido</span></h4>
+                            </div> 
+                            <div class="col-md-6">  
+                                <input id="apellido_persona" name="apellido_persona" type="text" 
+                                       class="form-control input-sm" placeholder="Apellido" onkeyup="this.value = this.value.toUpperCase()" onkeypress="return soloLetras(event)">
+                            </div> 
+                        </div>
+                        <div class="row">  
+                            <div class="col-md-3">   
+                                <h4><span>Direccion</span></h4>
+                            </div> 
+                            <div class="col-md-6">  
+                                <input id="direccion_persona" name="direccion_persona" type="text" 
+                                       class="form-control input-sm" placeholder="Direccion" onkeyup="this.value = this.value.toUpperCase()" onkeypress="return soloLetras(event)">
+                            </div> 
+                        </div> 
+                        <div class="row">  
+                            <div class="col-md-3">   
+                                <h4><span>Correo</span></h4>
+                            </div> 
+                            <div class="col-md-6">  
+                                <input id="correo_persona" name="correo_persona" type="text" 
+                                       class="form-control input-sm" placeholder="Correo" onkeyup="this.value = this.value.toUpperCase()">
+                            </div> 
+                        </div>
+                        <div class="row">  
+                            <div class="col-md-3">   
+                                <h4><span>CI</span></h4>
+                            </div> 
+                            <div class="col-md-6">  
+                                <input id="ci_persona" name="ci_persona" type="text" 
+                                       class="form-control input-sm" placeholder="Ci" onkeyup="this.value = this.value.toUpperCase()" onkeypress="return SoloNumeros(event)">
+                            </div> 
+                        </div> 
+                        <div class="row">  
+                            <div class="col-md-3">   
+                                <h4><span>Telefono</span></h4>
+                            </div> 
+                            <div class="col-md-6">  
+                                <input id="telefono_persona" name="telefono_persona" type="text" 
+                                       class="form-control input-sm" placeholder="Telefono" onkeyup="this.value = this.value.toUpperCase()" onkeypress="return SoloNumeros(event)">
+                            </div> 
+                        </div> 
+                        <div class="row">  
+                            <div class="col-md-3">   
+                                <h4><span>Edad</span></h4>
+                            </div> 
+                            <div class="col-md-6">  
+                                <input id="edad_persona" name="edad_persona" type="text" 
+                                       class="form-control input-sm" placeholder="Edad" onkeyup="this.value = this.value.toUpperCase()" onkeypress="return SoloNumeros(event)">
+                            </div> 
+                        </div> 
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h4><span>Id Ciudad</span></h4>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="id_ciudad" name="id_ciudad" type="text" 
+                                       class="form-control input-sm" placeholder="Id">
+                            </div>
+                            <div class="col-md-1">
+                                <button id="botonBuscarIdCiudad"  type="button" 
+                                        class="btn btn-primary btn-sm">
+                                    <span class="glyphicon glyphicon-search"></span>      
+                                </button>
+                            </div>
+                            <div class="col-md-9">                                                                      
+                            </div>                       
+                        </div>
+                        <div class="row">  
+                            <div class="col-md-3">   
+                                <h4><span>Nombre Ciudad</span></h4>
+                            </div> 
+                            <div class="col-md-6">  
+                                <input id="nombre_ciudad" name="nombre_ciudad" type="text" 
+                                       class="form-control input-sm" placeholder="Nombre" onkeyup="this.value = this.value.toUpperCase()">
+                            </div> 
+                        </div> 
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h4><span>Id Estado Civil</span></h4>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="id_estadocivil" name="id_estadocivil" type="text" 
+                                       class="form-control input-sm" placeholder="Id">
+                            </div>
+                            <div class="col-md-1">
+                                <button id="botonBuscarIdEstadoCivil"  type="button" 
+                                        class="btn btn-primary btn-sm">
+                                    <span class="glyphicon glyphicon-search"></span>      
+                                </button>
+                            </div>
+                            <div class="col-md-9">                                                                      
+                            </div>                       
+                        </div>
+                        <div class="row">  
+                            <div class="col-md-3">   
+                                <h4><span>Nombre Estado Civil</span></h4>
+                            </div> 
+                            <div class="col-md-6">  
+                                <input id="nombre_estadocivil" name="nombre_estadocivil" type="text" 
+                                       class="form-control input-sm" placeholder="Nombre" onkeyup="this.value = this.value.toUpperCase()">
+                            </div> 
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h4><span>Id Genero</span></h4>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="id_genero" name="id_genero" type="text" 
+                                       class="form-control input-sm" placeholder="Id">
+                            </div>
+                            <div class="col-md-1">
+                                <button id="botonBuscarIdGenero"  type="button" 
+                                        class="btn btn-primary btn-sm">
+                                    <span class="glyphicon glyphicon-search"></span>      
+                                </button>
+                            </div>
+                            <div class="col-md-9">                                                                      
+                            </div>                       
+                        </div>
+                        <div class="row">  
+                            <div class="col-md-3">   
+                                <h4><span>Nombre Genero</span></h4>
+                            </div> 
+                            <div class="col-md-6">  
+                                <input id="nombre_genero" name="nombre_genero" type="text" 
+                                       class="form-control input-sm" placeholder="Nombre" onkeyup="this.value = this.value.toUpperCase()">
+                            </div> 
+                        </div> 
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h4><span>Id Tipo Persona</span></h4>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="id_tipopersona" name="id_tipopersona" type="text" 
+                                       class="form-control input-sm" placeholder="Id" onkeypress="return SoloNumeros(event)">
+                            </div>
+                            <div class="col-md-1">
+                                <button id="botonBuscarIdTipoPersona"  type="button" 
+                                        class="btn btn-primary btn-sm">
+                                    <span class="glyphicon glyphicon-search"></span>      
+                                </button>
+                            </div>
+                            <div class="col-md-9">                                                                      
+                            </div>                       
+                        </div>
+                        <div class="row">  
+                            <div class="col-md-3">   
+                                <h4><span>Nombre Tipo Persona</span></h4>
+                            </div> 
+                            <div class="col-md-6">  
+                                <input id="nombre_tipopersona" name="nombre_tipopersona" type="text" 
+                                       class="form-control input-sm" placeholder="Nombre" onkeyup="this.value = this.value.toUpperCase()" onkeypress="return soloLetras(event)">
+                            </div> 
+                        </div> 
+
+                    </form>
+                </div>
+                <div class="panel-body text-center" style="background-color: #245580; margin-top:0px">
+                    <button id="botonAgregar" type="button" class="btn bordo btn-sm">Agregar</button>
+                    <button id="botonModificar" type="button" class="btn bordo btn-sm">Modificar</button>
+                    <button id="botonEliminar" type="button" class="btn bordo btn-sm"
+                            data-toggle="modal" data-target="#confirmarEliminar">Eliminar</button>
+                    <button id="botonSalir" type="button" class="btn bordo btn-sm">Salir</button>
+
+                    <div id="mensajes" class="text-center" style="color: #ffffff ;margin-top: 20px"  >Mensajes del Sistema.</div>
+                </div>
+
+
+                <div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog"
+                     aria-labelledby= "myModalLabel" aria-hidden="true">
+                    <div  class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header centrado">
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span aria-hidden="true">&times;</span>
+                                    <span class="sr-only">Close</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">Mensaje del Sistema</h4>
+                            </div>
+                            <div class="modal-body">Esta seguro de eliminar estos datos</div>
+                            <div class="modal-footer centrado">
+                                <button id="botonEliminarAlert" type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Eliminar</button>
+                                <button  type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>     
+                </div>
+            </div>
+        </div>
+        <script src="../../../js/jquery.min.js" type="text/javascript"></script>
+        <script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/funcion.js" type="text/javascript"></script>
+        <script src="../../../js/funciones.js" type="text/javascript"></script>
+        <!--<script src="../../../js/funciones.js" type="text/javascript"></script>-->
+        <script>
+                                           //verificarSesion(true);
+                                           $("#buscar").css("display", "none");
+                                           $("#id_persona").focus();
+                                           $("#botonAgregar").on('click', function () {
+                                               //if(validar formulario()){
+                                               agregarPersona();
+                                               //}
+                                           });
+
+                                           $("#id_persona").focusout(function (event) {
+                                               if ($("#id_persona").val() === "") {
+                                                   $("#id_persona").val("0");
+                                               }
+                                               buscarIdPersona();
+                                           });
+                                           $("#id_ciudad").focusout(function (event) {
+                                               if ($("#id_ciudad").val() === "") {
+                                                   $("#id_ciudad").val("0");
+                                               }
+                                               buscarIdCiudad();
+                                           });
+                                           $("#id_estadocivil").focusout(function (event) {
+                                               if ($("#id_estadocivil").val() === "") {
+                                                   $("#id_estadocivil").val("0");
+                                               }
+                                               buscarIdEstadoCivil();
+                                           });
+                                           $("#id_genero").focusout(function (event) {
+                                               if ($("#id_genero").val() === "") {
+                                                   $("#id_genero").val("0");
+                                               }
+                                               buscarIdGenero();
+                                           });
+                                           $("#id_tipopersona").focusout(function (event) {
+                                               if ($("#id_tipopersona").val() === "") {
+                                                   $("#id_tipopersona").val("0");
+                                               }
+                                               buscarIdTipoPersona1();
+                                           });
+
+                                           //botones de buscar
+                                           //
+                                           ///////////////////////////////////////////////////////////////////////////////
+                                           $("#botonBuscarIdPersona").on('click', function () {
+                                               $("#buscar").load("buscar.html");
+                                               $("#buscar").fadeIn("slow");
+                                               $("#panelPrograma").fadeOut("slow");
+                                           });
+                                           $("#botonBuscarIdCiudad").on('click', function () {
+                                               $("#buscar").load("buscarciudad.html");
+                                               $("#buscar").fadeIn("slow");
+                                               $("#panelPrograma").fadeOut("slow");
+                                           });
+                                           $("#botonBuscarIdEstadoCivil").on('click', function () {
+                                               $("#buscar").load("buscarestadocivil.html");
+                                               $("#buscar").fadeIn("slow");
+                                               $("#panelPrograma").fadeOut("slow");
+                                           });
+                                           $("#botonBuscarIdGenero").on('click', function () {
+                                               $("#buscar").load("buscargenero.html");
+                                               $("#buscar").fadeIn("slow");
+                                               $("#panelPrograma").fadeOut("slow");
+                                           });
+                                           $("#botonBuscarIdTipoPersona").on('click', function () {
+                                               $("#buscar").load("buscartipopersona.html");
+                                               $("#buscar").fadeIn("slow");
+                                               $("#panelPrograma").fadeOut("slow");
+                                           });
+
+                                           $("#botonModificar").on('click', function () {
+                                               //if(validar formulario()){
+                                               modificarPersona();
+                                               //}
+                                           });
+                                           $("#botonEliminarAlert").on('click', function () {
+                                               eliminarPersona();
+                                               $('#confirmarEliminar').modal('hide');
+                                           });
+                                           $("#botonSalir").on('click', function () {
+                                               location.href = "../../../menu.html";
+                                           });
+        </script>
+    </body>
+</html>

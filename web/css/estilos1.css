@@ -1,0 +1,23 @@
+.panelbody{
+    width: 650px;
+    left: 800px;
+    margin: auto;
+    margin-top: 3%;
+    
+}
+.bordo{
+    background-color: #269abc;
+    border-color: black;
+    color: #fff;
+}
+.panelbody2{
+    width: 60%;
+    
+    margin: auto;
+    margin-top: 3%;
+    
+}
+img {
+ opacity:0.6;
+ filter:alpha(opacity=40); /* For IE8 and earlier */
+}

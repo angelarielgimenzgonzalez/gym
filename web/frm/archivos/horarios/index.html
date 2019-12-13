@@ -1,0 +1,141 @@
+<html>
+    <head>
+        <title>Horarios</title>
+        <link rel="icon" type="image/png" href="../../../img/modificar.png"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/estilo.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/estilos1.css" rel="stylesheet" type="text/css"/>
+        
+    </head>
+     <body style="background-image: url(../../../img/gymm.jpg); background-size: 100%; opacity: 0.9">
+
+        <div class="panelbody">
+        <div id="confirmar"></div>
+        <div id="buscar"></div>
+        <div id="panelPrograma" class="panel panel-success" style="background-color: #cccccc">
+            <div class="panel-heading text-center" style="color: #398439;"><h3>Horarios <a class="glyphicon glyphicon-align-justify"></a></h3><span
+                    id="susario_usuario"></span></div>
+            <div class="panel-body">
+                <form id="formPrograma">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4><span>Id</span></h4>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="id_horario" name="id_horario" type="text" 
+                                   class="form-control input-sm" placeholder="Id" onkeypress="return SoloNumeros(event)">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdHorario"  type="button" 
+                                class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-search"></span>      
+                            </button>
+                        </div>
+                        <div class="col-md-9">                                                                      
+                        </div>                       
+                    </div>
+                    <div class="row">  
+                        <div class="col-md-3">   
+                            <h4><span>Nombre</span></h4>
+                        </div> 
+                        <div class="col-md-6">  
+                            <input id="nombre_horario" name="nombre_horario" type="text" 
+                                   class="form-control input-sm" placeholder="Nombre" onkeyup="this.value = this.value.toUpperCase()" onkeypress="return soloLetras(event)">
+                        </div> 
+                    </div>
+                    <div class="row">  
+                        <div class="col-md-3">   
+                            <h4><span>Hora Inicio</span></h4>
+                        </div> 
+                        <div class="col-md-6">  
+                            <input id="horain_horario" name="horain_horario" type="text" 
+                                   class="form-control input-sm" placeholder="Hora Inicio" onkeyup="this.value = this.value.toUpperCase()" >
+                        </div> 
+                    </div>
+                    <div class="row">  
+                        <div class="col-md-3">   
+                            <h4><span>Hora Fin</span></h4>
+                        </div> 
+                        <div class="col-md-6">  
+                            <input id="horafin_horario" name="horafin_horario" type="text" 
+                                   class="form-control input-sm" placeholder="Hora Fin" onkeyup="this.value = this.value.toUpperCase()" >
+                        </div> 
+                    </div>
+              
+                </form>
+            </div>
+            <div class="panel-footer text-center">
+                <button id="botonAgregar" type="button" class="btn bordo btn-sm">Agregar</button>
+                <button id="botonModificar" type="button" class="btn bordo btn-sm">Modificar</button>
+                <button id="botonEliminar" type="button" class="btn bordo btn-sm"
+                        data-toggle="modal" data-target="#confirmarEliminar">Eliminar</button>
+                <button id="botonSalir" type="button" class="btn bordo btn-sm">Salir</button>
+            </div>
+        
+        <div id="mensajes" class="well well-sm text-center">Mensajes del Sistema.</div>
+        <div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog"
+             aria-labelledby= "myModalLabel" aria-hidden="true">
+            <div  class="modal-dialog modal-sm">
+                <div class="modal-content">
+                <div class="modal-header centrado">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Mensaje del Sistema</h4>
+                </div>
+                <div class="modal-body">Esta seguro de eliminar estos datos</div>
+                <div class="modal-footer centrado">
+                    <button id="botonEliminarAlert" type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Eliminar</button>
+                   <button  type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+             </div>     
+        </div>
+         </div>
+        </div>
+        <script src="../../../js/jquery.min.js" type="text/javascript"></script>
+        <script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+         <script src="js/funcion.js" type="text/javascript"></script>
+         <script src="../../../js/funciones.js" type="text/javascript"></script>
+         <!--<script src="../../../js/funciones.js" type="text/javascript"></script>-->
+        <script>
+                       //verificarSesion(true);
+            $("#buscar").css("display","none");
+            $("#id_horario").focus();
+            $("#botonAgregar").on('click',function (){
+                //if(validar formulario()){
+                agregarHorario();
+            //}
+            });
+           
+            $("#id_horario").focusout(function(event){
+                if ($("#id_horario").val()=== ""){
+                    $("#id_horario").val("0");
+                }
+                buscarIdHorario();
+            });
+            $("#botonBuscarIdHorario").on('click', function(){
+                $("#buscar").load("buscar.html");
+                $("#buscar").fadeIn("slow");
+                $("#panelPrograma").fadeOut("slow");
+            });
+             
+            $("#botonModificar").on('click',function (){
+                //if(validar formulario()){
+                modificarHorario();
+            //}
+            });
+            $("#botonEliminarAlert").on('click',function (){
+               eliminarHorario();
+               $('#confirmarEliminar').modal('hide');
+            });
+            $("#botonSalir").on('click', function(){
+                location.href="../../../menu.html";
+            });
+        </script>
+    </body>
+</html>

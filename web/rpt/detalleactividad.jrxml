@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="detalleactividad" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5f928163-44a9-4c00-a980-b3e927085239">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="DESDE" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from facturasdetalles df left join facturas f on f.id_factura=df.id_factura
+ left join actividades a on a.id_actividad=df.id_actividad
+where df.id_factura= $P{DESDE}]]>
+	</queryString>
+	<field name="id_detallefactura" class="java.lang.Integer"/>
+	<field name="id_actividad" class="java.lang.Integer"/>
+	<field name="id_factura" class="java.lang.Integer"/>
+	<field name="precio_total_factura" class="java.lang.Integer"/>
+	<field name="cantidad_factura" class="java.lang.Integer"/>
+	<field name="fecha_factura" class="java.sql.Date"/>
+	<field name="id_persona" class="java.lang.Integer"/>
+	<field name="numero_factura" class="java.lang.Integer"/>
+	<field name="estado_factura" class="java.lang.String"/>
+	<field name="id_agendamiento" class="java.lang.Integer"/>
+	<field name="nombre_actividad" class="java.lang.String"/>
+	<field name="turno_actividad" class="java.lang.String"/>
+	<field name="id_horario" class="java.lang.Integer"/>
+	<field name="iva_actividad" class="java.lang.Integer"/>
+	<field name="precio_actividad" class="java.lang.Integer"/>
+	<detail>
+		<band height="27">
+			<textField>
+				<reportElement x="1" y="0" width="70" height="27" uuid="4e444fcd-f815-4cbd-9776-43528450605e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cantidad_factura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="0" width="202" height="27" uuid="0731640a-9231-431b-bd07-4f7f8dc68a3d"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nombre_actividad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="0" width="71" height="27" uuid="eaefedd0-2e6d-4c4c-9b23-3613794cc08d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{precio_actividad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="0" width="81" height="27" uuid="08c0a120-c378-4acc-a482-580a17ead56d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{precio_actividad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

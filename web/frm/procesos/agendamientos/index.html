@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Agendamientos</title>
+        <link rel="icon" type="image/png" href="../../../favicon.png"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/estilos.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div id="confirmar"></div>
+        <div id="buscar"></div>
+    <div style="background-color: #c0c0c0"id="panelLinea" class="panel panel-success">
+            <div class="panel-heading centrado">Agendamiento Detalle</div>
+            <div class="panel-body" style="background-color: #e7e7e7">
+                <form id="formLinea">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id Linea</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_detalleagendamiento" name="id_detallagendamiento" type="text" class="fcontrolbordo input-sm" placeholder="Id" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Actividad</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_actividad" name="id_actividad" type="text" class="fcontrolbordo input-sm" placeholder="Actividad">
+                        </div>
+
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdActividad" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-9">
+                            <input id="nombre_actividad" name="nombre_actividad" type="text" class="fcontrolbordo input-sm" placeholder="Nombre Actividad" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Precio</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="precio_actividad" name="precio_actividad" type="text" class="form-control input-sm derecha" placeholder="Precio">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer centrado">
+                <button id="botonAgregarLinea" type="button" class="btn bordo bordo1 btn-sm">Agregar</button>
+                <button id="botonModificarLinea" type="button" class="btn bordo bordo1 btn-sm">Modificar</button>
+                <button id="botonEliminarLinea" type="button" class="btn bordo bordo1 btn-sm" data-toggle="modal" data-target="#confirmarEliminarLinea">Eliminar</button>
+                <button id="botonSalirLinea" type="button" class="btn bordo bordo1 btn-sm">Salir</button>
+            </div>
+        </div>
+        <div id="panelPrograma" class="panel panel-success">
+            <div class="panel-heading centrado">Agendamientos <span id="snombre_empresa"></span>  <span id="susuario_usuario"></span></div>
+            <div class="panel-body" style="background-color: #e7e7e7">
+                <form id="formPrograma">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id usuario</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_usuario" name="id_usuario" type="text" class="fcontrolbordo input-sm" placeholder="Id">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_agendamiento" name="id_agendamiento" type="text" class="fcontrolbordo input-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="cangrejo" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Fecha Agendamiento</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="fecha_agendamiento" name="fecha_agendamiento" type="Date" class="fcontrolbordo input-sm">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Cliente</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_persona" name="id_persona" type="text" class="fcontrolbordo input-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdPersona" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+
+                        <div class="col-md-3">
+                            <input id="nombre_persona" name="nombre_persona" type="text" class="fcontrolbordo input-sm" placeholder="Nombre Cliente" disabled="disabled">
+                        </div>
+                    </div>
+                </form>
+                <div id="detalle" hidden="">
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Actividad</th>
+                                <th>Nombre</th>
+                                <th class="centrado">Precio</th>
+                                <th class="centrado"><button onclick="agregarLinea()" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus"></span></button></th>
+                            </tr>
+                        </thead>
+                        <tbody id="contenidoDetalle">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel-footer centrado">
+                <button id="botonAgregar" type="button" class="btn btn-primary btn-sm">Agregar</button>
+                <button id="botonConfir" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#confirmarAgendamiento">Confirmar</button>
+                <button id="botonEliminar" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#confirmarEliminar">Eliminar</button>
+                <button id="botonSalir" type="button" class="btn btn-primary btn-sm">Salir</button>
+            </div>
+        </div>
+        <div id="mensajes" class="well well-sm centrado">Mensajes del Sistema.</div>
+        <div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header  centrado">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Mensaje del Sistema</h4>
+                    </div>
+                    <div class="modal-body">
+                        Está seguro de eliminar estos datos?
+                    </div>
+                    <div class="modal-footer centrado">
+                        <button id="botonEliminarAlert" type="button" class="btn btn-primary btn-sm">Eliminar</button>
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="confirmarEliminarLinea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header  centrado">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabelLinea">Mensaje del Sistema</h4>
+                    </div>
+                    <div class="modal-body">
+                        Está seguro de eliminar esta linea?
+                    </div>
+                    <div class="modal-footer centrado">
+                        <button id="botonEliminarAlertLinea" type="button" class="btn btn-primary btn-sm">Eliminar</button>
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="confirmarAgendamiento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header  centrado">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabelLinea">Mensaje del Sistema</h4>
+                    </div>
+                    <div class="modal-body">
+                        Agendamiento Finalizado ???
+                    </div>
+                    <div class="modal-footer centrado">
+                        <button id="botonRefres" type="button" class="btn btn-primary btn-sm">solo Agendar</button>
+                        <button id="botonFacturar" type="button" class="btn btn-primary btn-sm">Facturar</button>
+
+                        <button type="button" class="btn btn-default btn-sm oculto" data-dismiss="modal">Facturar</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <script src="../../../js/jquery.min.js" type="text/javascript"></script>
+        <script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../../js/funciones.js" type="text/javascript"></script> 
+        <script src="js/funciones.js" type="text/javascript"></script>
+        <script>
+                                    verificarSesion(true);
+
+                                    $("#buscar").css("display", "none");
+                                    $("#panelLinea").css("display", "none");
+                                    $("#id_agendamiento").focus();
+                                    siguienteCampo("#id_agendamiento", "#id_persona", false);
+                                    setTimeout('buscarIdCaja()',900);
+
+                                    //siguienteCampo("#id_articulo", "#cantidad_articulopedido", false);
+
+                                    //if ($("#id_pedido").val() === "0") {
+                                    //siguienteCampo("#id_persona", "#botonAgregar", false);
+                                    // } else {
+
+                                    //  siguienteCampo("#id_persona", "#botonModificar", false);
+                                    // }
+                                    $("#fecha_agendamiento").ready(function () {
+                                        console.log(fechahoy());
+                                    });
+                                    $("#id_agendamiento").focusout(function (event) {
+                                        if ($("#id_agendamiento").val() === "") {
+                                            $("#id_agendamiento").val("0");
+                                        }
+                                        buscarIdAgendamiento();
+                                        var id = $("#id_agendamiento").val();
+                                        $("#id_agendamiento").val("0");
+
+                                    });
+                                    $("#id_persona").focusout(function (event) {
+                                        if ($("#id_persona").val() === "") {
+                                            $("#id_persona").val("0");
+                                        }
+                                        buscarIdPersona();
+                                    });
+                                    $("#botonBuscarIdPersona").on('click', function () {
+                                        $("#buscar").load("buscarPersonas.html");
+                                        $("#buscar").fadeIn("slow");
+                                        $("#panelPrograma").fadeOut("slow");
+                                    });
+                                    $("#id_actividad").focusout(function (event) {
+                                        if ($("#id_actividad").val() === "") {
+                                            $("#id_actividad").val("0");
+                                        }
+                                        buscarIdActividad();
+                                    });
+
+
+                                    $("#cangrejo").on('click', function () {
+
+                                        $("#buscar").load("buscarAgendamiento.html");
+                                        $("#buscar").fadeIn("slow");
+                                        $("#panelPrograma").fadeOut("slow");
+                                    });
+                                    $("#botonBuscarIdActividad").on('click', function () {
+                                        $("#buscar").load("buscarActividades.html");
+                                        $("#buscar").fadeIn("slow");
+                                        $("#panelLinea").fadeOut("slow");
+                                    });
+
+                                    $("#botonAgregar").on('click', function () {
+                                        //if(validarFormulario()){
+                                        agregarAgendamiento();
+                                        //}
+                                    });
+                                    $("#botonModificar").on('click', function () {
+
+                                        modificarAgendamiento();
+
+                                    });
+                                    $("#botonEliminarAlert").on('click', function () {
+                                        eliminarAgendamiento();
+                                        $('#confirmarEliminar').modal('hide');
+                                    });
+                                    $("#botonSalir").on('click', function () {
+                                        location.href = "../../../menu.html";
+                                    });
+                                    $("#botonFacturar").on('click', function () {
+                                        //location.href = "http://localhost:8084/GYM_ULTRA/frm/procesos/ventas/";
+                                        aa = document.getElementById("id_agendamiento").value;
+                                        location.href = "../ventas/index.html?id_agendamiento=" + aa;
+
+                                    });
+
+                                    $("#botonAgregarLinea").on('click', function () {
+
+                                        agregarAgendamientoDetalle();
+
+                                    });
+                                    $("#botonRefres").on('click', function () {
+
+                                        location.reload();
+
+                                    });
+                                    //$("#botonModificarLinea").on('click', function () {
+
+                                    // modificarPedidoDetalle();
+
+
+                                    // });
+                                    //$("#botonEliminarAlertLinea").on('click', function () {
+                                    //  eliminarPedidoDetalle();
+                                    // $('#confirmarEliminarLinea').modal('hide');
+                                    //});
+                                    $("#botonSalirLinea").on('click', function () {
+                                        $("#panelLinea").fadeOut("slow");
+                                        $("#panelPrograma").fadeIn("slow");
+                                    });
+
+        </script>
+    </body>
+</html>
